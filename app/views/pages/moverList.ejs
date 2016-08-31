@@ -1,0 +1,18 @@
+<%include ../includes/head%>
+	<table>
+		<tr>
+			<th>书名</th>
+			<th>作者</th>
+			<th>点击次数</th>
+			<th>操作</th>
+		</tr>
+		<%for(var i=0;i<movie.length;i++){%>
+			<tr>
+				<td><%=movie[i].name%></td>
+				<td><%=movie[i].author%></td>
+				<td><%=movie[i].size%></td>
+				<td><a href="/mover/update?id=<%=movie[i].id%>">修改</a></td>
+			</tr>aaaa
+		<%}%>
+	</table>
+<%include ../includes/bottom%>

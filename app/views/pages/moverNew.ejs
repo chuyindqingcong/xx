@@ -1,0 +1,12 @@
+<%include ../includes/head%>
+	<form method="post" action="/movie/admin">
+		<div>
+			<li><label>书名</label><input type="text" name="name" value="<%=name%>"></li>
+			<li><label>作者</label><input type="text" name="author" value="<%=author%>"></li>
+			<li><label>图片</label><input type="text" name="img" value="<%=img%>"></li>
+			<li><label>观看人数</label><input type="text" name="size" value="<%=size%>"></li>
+			<input type="hidden" name="id" value="<%=id%>">
+			<li><input type="submit" value="提交"></li>
+		</div>
+	</form>
+<%include ../includes/bottom%>
