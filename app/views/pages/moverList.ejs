@@ -11,8 +11,11 @@
 				<td><%=movie[i].name%></td>
 				<td><%=movie[i].author%></td>
 				<td><%=movie[i].size%></td>
-				<td><a href="/mover/update?id=<%=movie[i].id%>">修改</a></td>
-			</tr>aaaa
+				<td>
+					<a href="/mover/update?id=<%=movie[i].id%>" style="color:#000">修改</a>
+					<a href="/mover/update?id=<%=movie[i].id%>" style="color:#000">删除</a>
+				</td>
+			</tr>
 		<%}%>
 	</table>
 <%include ../includes/bottom%>

@@ -40,6 +40,7 @@ exports.update = function(req,res) {
 	}
 }
 exports.add = function(req,res) {
+	console.log('aa')
 	var id = req.body.id;
 	var movie = req.body;
 	var save="";

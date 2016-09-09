@@ -1,0 +1,37 @@
+<%include ../includes/head%>
+<form id="form">
+	<div>
+		<li><label>用户名</label><input type="text" name="user"></li>
+		<li><label>密码</label><input type="text" name="password"></li>
+		<li><label>确认密码</label><input type="text" name="cdpassword"></li>
+		<li><span class='btn-zc' id="TJ">提交</span></li>
+	</div>
+</form>
+<script type="text/javascript">
+	var tj=document.getElementById('TJ');
+	var inputs=document.getElementById('form').getElementsByTagName('input');
+	tj.addEventListener('click',function(){
+		var a=size(inputs);
+		var XRL= new XMLHttpRequest();
+		XRL.open('POST','/user/zc',true);
+		XRL.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		XRL.send(a);
+		console.log(a)
+		XRL.onreadystatechange= function(){
+			if(XRL.readyState==4){
+				if(XRL.status==200){
+					var text = XRL.responseText;
+					console.log(text)
+				}
+			}
+		}
+	})
+	function size(ids){
+		var jsonp={};
+		for(var i=0;i<ids.length;i++){
+			jsonp[ids[i].name]=ids[i].value;
+		}
+		return JSON.stringify(jsonp);
+	}
+</script>
+<%include ../includes/bottom%>

@@ -5,7 +5,34 @@
 li{
 	list-style-type: none;
 }
+a{
+	color: #fff;
+	text-decoration: none
+}
 .tj li {
 	margin-right: 20px;
 	float: left
+}
+.botom {
+	position: absolute;
+	bottom: 0px;
+	background: red;
+	width: 100%;
+	height:60px;
+	line-height: 60px;
+	padding-left: 20px;
+	overflow: hidden;
+    box-sizing: border-box;
+}
+.botom li{
+	float: left;
+	color: #fff;
+
+}
+.btn-zc { 
+	cursor: pointer;
+	color: #fff;
+	background-color: red;
+	padding: 3px 6px;
+	border-radius: 3px
 }
