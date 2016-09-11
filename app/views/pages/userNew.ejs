@@ -12,26 +12,39 @@
 	var inputs=document.getElementById('form').getElementsByTagName('input');
 	tj.addEventListener('click',function(){
 		var a=size(inputs);
-		var XRL= new XMLHttpRequest();
-		XRL.open('POST','/user/zc',true);
-		XRL.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		XRL.send(a);
-		console.log(a)
-		XRL.onreadystatechange= function(){
-			if(XRL.readyState==4){
-				if(XRL.status==200){
-					var text = XRL.responseText;
-					console.log(text)
+		//var XRL= new XMLHttpRequest();
+		// XRL.open('POST','/user/zc',true);
+		// XRL.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		// XRL.send(a);
+		// console.log(a)
+		// XRL.onreadystatechange= function(){
+		// 	if(XRL.readyState==4){
+		// 		if(XRL.status==200){
+		// 			var text = XRL.responseText;
+		// 			console.log(text)
+		// 		}
+		// 	}
+		// }
+		$.ajax({
+			url:'/user/zc',
+			type:'post',
+			data:a,
+			success:function(data){
+				if(data==0){
+					alert('注册成功');
+					window.location.href='/user/login'
+				}else{
+					alert('注册失败')
 				}
 			}
-		}
+		})
 	})
 	function size(ids){
 		var jsonp={};
 		for(var i=0;i<ids.length;i++){
 			jsonp[ids[i].name]=ids[i].value;
 		}
-		return JSON.stringify(jsonp);
+		return jsonp;
 	}
 </script>
 <%include ../includes/bottom%>

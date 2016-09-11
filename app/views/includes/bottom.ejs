@@ -1,5 +1,11 @@
 <div class="botom">
-	<li><a href="">登录</a>|<a href="/user/new">注册</a></li>
+	<% if(locals.user){ %>
+	<li>欢迎你 <%=user.user%>|<a href="/user/logout">注销</a></li>
+	<% }else{ %>
+	<li><a href="/user/login">登录</a>|<a href="/user/new">注册</a></li>
+	<% }%>
 </div>
+<script type="text/javascript">
+</script>
 </body>
 </html>

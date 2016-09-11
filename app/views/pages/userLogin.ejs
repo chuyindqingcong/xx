@@ -1,0 +1,35 @@
+<%include ../includes/head%>
+<form id="form">
+	<div>
+		<li><label>用户名</label><input type="text" name="user"></li>
+		<li><label>密码</label><input type="text" name="password"></li>
+		<li><span class='btn-zc' id="login">登录</span></li>
+	</div>
+</form>
+<script type="text/javascript">
+	var login=document.getElementById('login');
+	var inputs = document.getElementById('form').getElementsByTagName('input');
+	login.addEventListener('click',function(){
+		var a = size(inputs);
+		$.ajax({
+			url:'/user/dl',
+			type:'post',
+			data:a,
+			success:function(data){
+				if(data==0){
+					window.location.href='/'
+				}else{
+					alert('账号或密码错误')
+				}
+			}
+		})
+	})
+	function size(ids){
+		var jsonp={};
+		for(var i=0;i<ids.length;i++){
+			jsonp[ids[i].name]=ids[i].value;
+		}
+		return jsonp;
+	}
+</script>
+<%include ../includes/bottom%>

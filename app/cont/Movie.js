@@ -22,7 +22,8 @@ exports.list = function(req,res) {
 
 }
 exports.update = function(req,res) {
-	var id = req.query.id;
+	var a=req.query;
+	var id = a.id;
 	if(id){
 		var find = 'SELECT * FROM xx WHERE id='+id+';';
 
