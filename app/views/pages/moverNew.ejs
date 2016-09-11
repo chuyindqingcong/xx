@@ -5,6 +5,18 @@
 			<li><label>作者</label><input type="text" name="author" value="<%=author%>"></li>
 			<li><label>图片</label><input type="text" name="img" value="<%=img%>"></li>
 			<li><label>观看人数</label><input type="text" name="size" value="<%=size%>"></li>
+			<li>
+				<select name="sock">
+					<option>请选择分类</option>
+					<%for(var i=0;i<lists.length;i++){ %>
+						<%if(locals.sock){%>
+							<option value="<%=lists[i].id%>" selected="selected"><%=lists[i].name%></option>
+						<%} else {%>
+							<option value="<%=lists[i].id%>"><%=lists[i].name%></option>
+						<%}%>
+					<%}%>
+				</select>
+			</li>
 			<input type="hidden" name="id" value="<%=id%>">
 			<li><input type="submit" value="提交"></li>
 		</div>

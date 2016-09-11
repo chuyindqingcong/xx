@@ -1,12 +1,18 @@
 <% include ../includes/head %>
 <h1>个人推荐</h1>
 <div class='tj'>
-	<ul>
-		
-		<%for(var i=0;i<movie.length;i++){ %>
-		<li><img src="<%=movie[i].img %>"><h3><%=movie[i].name%></h3><span><%=movie[i].size %>万<%=movie[i].author %>作者</span></li>
-		<% } %>
-	</ul>
+	<%for(var j=0;j<sock.length;j++) {%>
+	<h1><%=sock[j].name%></h1>
+		<ul>
+				<%for(var i=0;i<movie.length;i++){ %>
+					<%if(sock[j].id==movie[i].sock){%>
+					<li><img src="<%=movie[i].img %>"><h3><%=movie[i].name%></h3><span><%=movie[i].size %>万<%=movie[i].author %>作者</span></li>
+					<%}%>
+				<% } %>
+		</ul>
+	<%}%>
 </div>
-
+<script type="text/javascript">
+	console.log('<%=sock[0].name%>')
+</script>
 <% include ../includes/bottom %>

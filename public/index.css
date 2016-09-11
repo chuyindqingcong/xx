@@ -13,8 +13,12 @@ a{
 	margin-right: 20px;
 	float: left
 }
+.tj ul {
+	clear: both;
+    overflow: hidden;
+}
 .botom {
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	background: red;
 	width: 100%;
