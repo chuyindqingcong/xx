@@ -26,6 +26,14 @@ exports.list = function(req,res) {
 	})
 
 }
+exports.lists = function(req,res) {
+	var find = 'SELECT * FROM xx';
+	mysql.query(find,function(err,movie){
+		if(err) console.log(err);
+		res.send({"data":movie,"recordsFiltered":"300"})
+	})
+
+}
 exports.update = function(req,res) {
 	var a=req.query;
 	var id = a.id;

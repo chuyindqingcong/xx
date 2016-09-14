@@ -1,12 +1,15 @@
 <%include ../includes/head%>
-	<table>
-		<tr>
-			<th>书名</th>
-			<th>作者</th>
-			<th>点击次数</th>
-			<th>操作</th>
-		</tr>
-		<%for(var i=0;i<movie.length;i++){%>
+	<table id='table' class='table table-striped table-bordered' cellspacing="0" width="100%" style="border-collapse=collapse">
+		<thead>
+			<tr>
+					<th><input type="checkbox" name="allChecked" /></th>
+				<th>书名</th>
+				<th>作者</th>
+				<th>点击次数</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+<!-- 		<%for(var i=0;i<movie.length;i++){%>
 			<tr>
 				<td><%=movie[i].name%></td>
 				<td><%=movie[i].author%></td>
@@ -16,6 +19,57 @@
 					<a href="/mover/update?id=<%=movie[i].id%>" style="color:#000">删除</a>
 				</td>
 			</tr>
-		<%}%>
+		<%}%> -->
 	</table>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#table').dataTable({
+	
+
+		"ajax": {
+                "type": "POST",
+                "url":'/mover/list',
+                "data":function(d){
+                	
+                }
+       	 },
+        "aoColumns" : [{
+			"mData" : "id",
+			"orderable": false , // 禁用排序
+			"sDefaultContent" : "",
+			"sWidth" : "2%"
+		        },{
+					"mData" : "name",
+					"orderable" : false, // 禁用排序
+					"sDefaultContent" : "",
+					"sWidth" : "6%",
+					
+				}, {
+					"mData" : "size",
+					"orderable" : false, // 禁用排序
+					"sDefaultContent" : "",
+					"sWidth" : "10%"
+				}, {
+					"mData" : "author",
+					"orderable" : false, // 禁用排序
+					"sDefaultContent" : "",
+					"sWidth" : "10%"
+				},{
+					"mData" : "author",
+					"orderable" : false, // 禁用排序
+					"sDefaultContent" : "",
+					"sWidth" : "3%",
+				}],
+		"columnDefs" : 
+		[{
+			"orderable" : false, // 禁用排序
+			"targets" : [0], // 指定的列
+			"data" : "id",
+			"render" : function(data, type, full, meta) {
+				return '<input type="checkbox" value="'+ data + '" name="id"/>';
+			}
+		}],
+			})
+		})
+	</script>
 <%include ../includes/bottom%>
